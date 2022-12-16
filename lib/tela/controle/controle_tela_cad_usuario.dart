@@ -24,21 +24,13 @@ class ControleCadUsuario {
   CollectionReference<Map<String, dynamic>> get _collection_usuarios =>
       FirebaseFirestore.instance.collection('usuarios');
 
-  String validarConfirmacaoSenha(BuildContext context) {
-    if (controlador_confirmarSenha != controlador_senha) {
-      MensagemAlerta(context, "A senha e sua confirmação devem ser iguais!");
-      return "";
-    }
-    return controlador_confirmarSenha.text.trim();
-  }
-
   void cadastrar(BuildContext context) async {
     if (formkey.currentState!.validate()) {
       String nome = controlador_nomeUsuario.text.trim();
       String email = controlador_emailUsuario.text.trim();
       String grupo = controlador_grupoUsuario.text.trim();
       String senha = controlador_senha.text.trim();
-      String confirmarSenha = validarConfirmacaoSenha(context);
+      String confirmarSenha = controlador_confirmarSenha.text.toUpperCase();
 
       try {
         UserCredential userCredential = await FirebaseAuth.instance

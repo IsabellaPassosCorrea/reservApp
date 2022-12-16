@@ -30,7 +30,6 @@ class Reserva {
 
   Map<String, dynamic> toMap() {
     final Map<String, dynamic> data = Map<String, dynamic>();
-    data['id'] = this.idReserva;
     data['usuario'] = this.usuario;
     data['salas'] = this.salas;
     data['turma'] = this.turma;

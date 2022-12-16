@@ -48,29 +48,8 @@ class TelaProfReservaState extends State<TelaProfReserva> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: <Widget>[
-            Row(
-              children: [
-                Text(style: TextStyle(fontSize: 18), "Qual tipo de Reserva"),
-              ],
-            ),
             SizedBox(
               height: 25,
-            ),
-            RadioGroup<String>.builder(
-              direction: Axis.vertical,
-              groupValue: _verticalGroupValue,
-              horizontalAlignment: MainAxisAlignment.spaceAround,
-              onChanged: (value) => setState(() {
-                _verticalGroupValue = value!;
-              }),
-              items: _status,
-              textStyle: TextStyle(
-                fontSize: 15,
-                color: Color.fromARGB(255, 148, 19, 51),
-              ),
-              itemBuilder: (item) => RadioButtonBuilder(
-                item,
-              ),
             ),
             SizedBox(
               height: 25,
@@ -150,7 +129,6 @@ class TelaProfReservaState extends State<TelaProfReserva> {
                       setState(
                         () {
                           _controle.salvar_item(context);
-                          Navigator.pop(context);
                           _controle.inicializar_campos();
                         },
                       );

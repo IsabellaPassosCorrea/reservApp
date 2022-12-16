@@ -121,26 +121,19 @@ class _TelaAdmCadUsuarioState extends State<TelaAdmCadUsuario> {
             SizedBox(
               height: 25,
             ),
-            Row(
-              children: [
-                Text(style: TextStyle(fontSize: 18), "Grupo a qual pertence: "),
-              ],
-            ),
-            SizedBox(
-              height: 25,
-            ),
-            RadioGroup<String>.builder(
-              direction: Axis.horizontal,
-              groupValue: _verticalGroupValue,
-              horizontalAlignment: MainAxisAlignment.spaceAround,
-              onChanged: (value) => setState(() {
-                _verticalGroupValue = value!;
-              }),
-              items: _status,
-              textStyle: TextStyle(fontSize: 13, color: Colors.blue),
-              itemBuilder: (item) => RadioButtonBuilder(
-                item,
+            TextFormField(
+              controller: _controle.controlador_grupoUsuario,
+              autofocus: true,
+              keyboardType: TextInputType.visiblePassword,
+              decoration: InputDecoration(
+                labelText: "A Qual grupo pertence: ",
+                labelStyle: TextStyle(
+                  color: Color(0xFF104079),
+                  fontWeight: FontWeight.w400,
+                  fontSize: 18,
+                ),
               ),
+              style: TextStyle(fontSize: 18),
             ),
             SizedBox(
               height: 25,
@@ -151,8 +144,11 @@ class _TelaAdmCadUsuarioState extends State<TelaAdmCadUsuario> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: AnimatedButton(
-                    onPress: (// retornar a lista para pegar em outro lugar
-                        ) {},
+                    onPress: (
+                        // retornar a lista para pegar em outro lugar
+                        ) {
+                      _controle.cadastrar(context);
+                    },
                     height: 70,
                     width: 180,
                     borderRadius: 20,
