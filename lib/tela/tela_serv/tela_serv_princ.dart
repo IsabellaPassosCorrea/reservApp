@@ -60,8 +60,8 @@ UserAccountsDrawerHeader _header() {
     decoration: BoxDecoration(
       color: Color(0xFF57D563),
     ),
-    accountName: Text("a puta que paril"),
-    accountEmail: Text("seu pai de calcinha"),
+    accountName: Text("Servidor"),
+    accountEmail: Text("exemploemail@gmail.com"),
     currentAccountPicture: CircleAvatar(
       backgroundColor: Color(0xFF35AB44),
     ),
